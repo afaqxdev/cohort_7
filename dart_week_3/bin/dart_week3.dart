@@ -170,38 +170,48 @@ class BankAccount {
 // --------------------------------------------------------
 
 void main() {
-  // Function Examples
-  print(greetUser('Afaq'));
-  showUserInfo(age: 22);
-  sayHello();
+  // Exception
+  Map<String, dynamic> user = {'name': 'afq', 'marks': 0.3};
+  try {
+    //body run
+    double a = user['marks'];
+    print(a);
+  } catch (e) {
+    print('this is the assing part of program $e');
+  }
 
-  executeCallback(() {
-    print('This is a callback function!');
-  });
+  // // Function Examples
+  // print(greetUser('Afaq'));
+  // showUserInfo(age: 22);
+  // sayHello();
 
-  // Class Object Examples
-  Flutter flutter1 = Flutter('Current Flutter version 3.29');
-  flutter1.printVersion();
-  print(flutter1.account);
+  // executeCallback(() {
+  //   print('This is a callback function!');
+  // });
 
-  User user = User();
-  user.isUserLogin(email: "afaq@example.com", isLogin: true);
-  user.isDelete();
-  user.arrowType();
-  print(user.userName());
-  print('Welcome ${user.checkUserRole()}');
+  // // Class Object Examples
+  // Flutter flutter1 = Flutter('Current Flutter version 3.29');
+  // flutter1.printVersion();
+  // print(flutter1.account);
 
-  // Inheritance
-  Animal myDog = Dog();
-  myDog.speak();
+  // User user = User();
+  // user.isUserLogin(email: "afaq@example.com", isLogin: true);
+  // user.isDelete();
+  // user.arrowType();
+  // print(user.userName());
+  // print('Welcome ${user.checkUserRole()}');
 
-  // Abstract class implementation
-  FirstLogin loginFlow = FirstLogin();
-  loginFlow.login();
-  loginFlow.updateProfile();
+  // // Inheritance
+  // Animal myDog = Dog();
+  // myDog.speak();
 
-  // BankAccount usage
-  BankAccount bank = BankAccount();
-  bank.deposit(1000);
-  print("Bank Balance: ${bank.getBalance()}");
+  // // Abstract class implementation
+  // FirstLogin loginFlow = FirstLogin();
+  // loginFlow.login();
+  // loginFlow.updateProfile();
+
+  // // BankAccount usage
+  // BankAccount bank = BankAccount();
+  // bank.deposit(1000);
+  // print("Bank Balance: ${bank.getBalance()}");
 }

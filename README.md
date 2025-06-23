@@ -39,6 +39,28 @@ This course is perfect for beginners who want to dive into programming with Dart
 
 ---
 
+
+### 💙 Flutter – Week 5
+
+- `Stack`: overlaying widgets, positioning with `Positioned`
+- `ListTile`: title, subtitle, leading/trailing widgets, onTap
+- `ListView`: 
+  - `ListView.builder`
+  - `ListView.separated`
+  - `ListView.custom`
+- `GridView`: 
+  - `GridView.count`
+  - `GridView.builder`
+- `InkWell`: handling `onTap` and ripple effects
+- Navigation & Routing:
+  - Navigating to a new screen (`Navigator.push`)
+  - Back from screen (`Navigator.pop`)
+  - Remove previous routes (`pushAndRemoveUntil`)
+  - Passing data to another screen using navigation
+
+
+---
+
 ## 📍 Location  
 **Arfa Kareem Technologies Incubation Center, Peshawar**
 

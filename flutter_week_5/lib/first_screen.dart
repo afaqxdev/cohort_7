@@ -4,358 +4,170 @@ class FirstScreen extends StatelessWidget {
   final String appbar;
   FirstScreen({super.key, required this.appbar});
 
-  List<Map<String, dynamic>> contactLis = [
-    {
-      'name': 'Afaq',
-      "location": 'Peshawar',
-      'icons': Icons.person,
-      'trail': Icons.menu,
-    },
-    {
-      'name': 'Afridi',
-      "location": 'Peshawar',
-      'icons': Icons.person,
-      'trail': Icons.menu,
-    },
-    {
-      'name': 'Afaq',
-      "location": 'Peshawar',
-      'icons': Icons.person,
-      'trail': Icons.menu,
-    },
-    {
-      'name': 'Afaq',
-      "location": 'Peshawar',
-      'icons': Icons.person,
-      'trail': Icons.more_vert,
-    },
-    // {
-    //   'name': 'Afaq',
-    //   "location": 'Peshawar',
-    //   'icons': Icons.person,
-    //   'trail': Icons.three_g_mobiledata,
-    // },
-    // {
-    //   'name': 'Afaq',
-    //   "location": 'Peshawar',
-    //   'icons': Icons.person,
-    //   'trail': Icons.sip_rounded,
-    // },
-    // {
-    //   'name': 'Afaq',
-    //   "location": 'Peshawar',
-    //   'icons': Icons.person,
-    //   'trail': Icons.sip_rounded,
-    // },
-    // {
-    //   'name': 'Afaq',
-    //   "location": 'Peshawar',
-    //   'icons': Icons.person,
-    //   'trail': Icons.sip_rounded,
-    // },
-    // {
-    //   'name': 'Afaq',
-    //   "location": 'Peshawar',
-    //   'icons': Icons.person,
-    //   'trail': Icons.sip_rounded,
-    // },
+  final List<Map<String, dynamic>> contactList = [
+    {'name': 'Afaq Zahir', "email": 'afaq@example.com'},
+    {'name': 'Shahid Afridi', "email": 'afridi@example.com'},
+    {'name': 'John Doe', "email": 'john@example.com'},
   ];
-
-  bool isShow = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(appbar)),
-      body: Center(
-        child: Column(
-          children: [
-            Expanded(
-              child: GridView.builder(
-                itemCount: 20,
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 1.6,
-                  childAspectRatio: .7,
-
-                  mainAxisSpacing: 11.6,
+      body: ListView(
+        padding: EdgeInsets.all(12),
+        children: [
+          // ✅ Stack Widget
+          Container(
+            height: 200,
+            color: Colors.grey[200],
+            child: Stack(
+              children: [
+                Container(
+                  height: 200,
+                  width: double.infinity,
+                  color: Colors.blue.shade100,
                 ),
-                itemBuilder: (context, index) {
-                  return InkWell(
-                    onTap: () {
-                      isShow = !isShow;
-                    },
-                    child: Container(
-                      color: Colors.green,
+                Positioned(
+                  top: 10,
+                  right: 10,
+                  child: CircleAvatar(
+                    radius: 20,
+                    backgroundColor: Colors.red,
+                    child: Icon(Icons.favorite, color: Colors.white),
+                  ),
+                ),
+              ],
+            ),
+          ),
 
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Container(
-                                width: 96,
-                                height: 32,
-                                decoration: BoxDecoration(
-                                  color: Color(0xffF7931A),
-                                  borderRadius: BorderRadius.only(
-                                    topRight: Radius.circular(10),
-                                    bottomRight: Radius.circular(10),
-                                  ),
-                                ),
-                                child: Center(child: Text("15% off")),
-                              ),
+          SizedBox(height: 20),
 
-                              Icon(Icons.favorite),
-                            ],
-                          ),
+          // ✅ ListTile with ListView.separated
+          Text(
+            'Contact List:',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          ListView.separated(
+            shrinkWrap: true,
+            physics: NeverScrollableScrollPhysics(),
+            itemCount: contactList.length,
+            separatorBuilder: (context, index) => Divider(),
+            itemBuilder:
+                (context, index) => ListTile(
+                  leading: Icon(Icons.person),
+                  title: Text(contactList[index]['name']),
+                  subtitle: Text(contactList[index]['email']),
+                  trailing: Icon(Icons.arrow_forward),
+                  onTap: () => print('Tapped on ${contactList[index]['name']}'),
+                ),
+          ),
 
-                          Center(
-                            child: Image.asset('assets/logo.png', scale: 5),
-                          ),
+          SizedBox(height: 20),
 
-                          SizedBox(height: 5),
+          // ✅ ListView.builder inside a container
+          Text(
+            'Dynamic Items (ListView.builder):',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 200,
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 10,
+              itemBuilder:
+                  (context, index) => Container(
+                    width: 120,
+                    margin: EdgeInsets.all(8),
+                    color: Colors.teal[100 * ((index % 8) + 1)],
+                    child: Center(child: Text('Item $index')),
+                  ),
+            ),
+          ),
 
-                          Row(
-                            children: List.generate(4, (index) {
-                              return Icon(Icons.star);
-                            }),
-                          ),
+          SizedBox(height: 20),
 
-                          ListTile(
-                            trailing: Container(
-                              width: 40,
-                              height: 49,
-                              decoration: BoxDecoration(
-                                color: Colors.amberAccent,
-                                borderRadius: BorderRadius.circular(12),
-                              ),
-                              child: Center(child: Icon(Icons.add)),
-                            ),
-                            title: Text('Logo'),
-                            subtitle: Text("Food Logo"),
-                          ),
-                          isShow ? Text("discroito") : SizedBox.shrink(),
-                        ],
+          // ✅ GridView.count with InkWell
+          Text(
+            'Grid Items (GridView.count):',
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(
+            height: 300,
+            child: GridView.count(
+              crossAxisCount: 2,
+              mainAxisSpacing: 10,
+              crossAxisSpacing: 10,
+              childAspectRatio: 1,
+              children: List.generate(4, (index) {
+                return InkWell(
+                  onTap: () {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text('Tapped on Grid Item $index')),
+                    );
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.orangeAccent,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Grid $index',
+                        style: TextStyle(fontSize: 18, color: Colors.white),
                       ),
                     ),
-                  );
-                },
-              ),
+                  ),
+                );
+              }),
             ),
+          ),
 
-            // ListView.separated(
-            //   separatorBuilder: (context, index) {
-            //     return SizedBox(height: 10);
-            //   },
-            //   shrinkWrap: true,
-            //   itemCount: contactLis.length,
-            //   itemBuilder: (context, afdas) {
-            //     return Column(
-            //       children: [
-            //         Container(
-            //           width: double.infinity,
-            //           height: 80,
-            //           decoration: BoxDecoration(
-            //             borderRadius: BorderRadius.circular(15.0),
-            //             gradient: LinearGradient(
-            //               colors: [
-            //                 Colors.blue.shade200,
-            //                 Colors.purple.shade100,
-            //               ],
-            //               begin: Alignment.topLeft,
-            //               end: Alignment.bottomRight,
-            //             ),
-            //             boxShadow: [
-            //               BoxShadow(
-            //                 color: Colors.grey.withOpacity(0.3),
-            //                 spreadRadius: 2,
-            //                 blurRadius: 5,
-            //                 offset: const Offset(
-            //                   0,
-            //                   3,
-            //                 ), // changes position of shadow
-            //               ),
-            //             ],
-            //           ),
-            //           child: ListTile(
-            //             leading: Container(
-            //               width: 80,
-            //               height: 80,
-            //               decoration: BoxDecoration(
-            //                 shape: BoxShape.circle,
-            //                 color: Colors.white.withOpacity(0.7),
-            //                 border: Border.all(color: Colors.red, width: 5),
-            //               ),
-            //               child: Icon(
-            //                 Icons.person,
-            //                 size: 40,
-            //                 color: Colors.blue.shade700,
-            //               ), // Placeholder icon
-            //             ),
-            //             trailing: Icon(contactLis[afdas]['trail']),
-            //             title: Text(contactLis[afdas]['name']),
-            //             subtitle: Text("Flutter"),
-            //           ),
-            //         ),
-            //       ],
-            //     );
-            //   },
-            // ),
+          SizedBox(height: 20),
 
-            // Text("data", style: TextStyle(fontSize: 50)),
-            // Container(
-            //   width: double.infinity,
-            //   height: 80,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(15.0),
-            //     gradient: LinearGradient(
-            //       colors: [Colors.blue.shade200, Colors.purple.shade100],
-            //       begin: Alignment.topLeft,
-            //       end: Alignment.bottomRight,
-            //     ),
-            //     boxShadow: [
-            //       BoxShadow(
-            //         color: Colors.grey.withOpacity(0.3),
-            //         spreadRadius: 2,
-            //         blurRadius: 5,
-            //         offset: const Offset(0, 3), // changes position of shadow
-            //       ),
-            //     ],
-            //   ),
-            //   child: ListTile(
-            //     leading: Container(
-            //       width: 80,
-            //       height: 80,
-            //       decoration: BoxDecoration(
-            //         shape: BoxShape.circle,
-            //         color: Colors.white.withOpacity(0.7),
-            //         border: Border.all(color: Colors.white, width: 2),
-            //       ),
-            //       child: Icon(
-            //         Icons.person,
-            //         size: 40,
-            //         color: Colors.blue.shade700,
-            //       ), // Placeholder icon
-            //     ),
-            //     trailing: Icon(Icons.settings),
-            //     title: Text("Afaq"),
-            //     subtitle: Text("Flutter"),
-            //   ),
-            //   //   Row(
-            //   //     children: <Widget>[
-            //   //       // Circular Avatar Placeholder
-            //   //       Container(
-            //   //         width: 80,
-            //   //         height: 80,
-            //   //         decoration: BoxDecoration(
-            //   //           shape: BoxShape.circle,
-            //   //           color: Colors.white.withOpacity(0.7),
-            //   //           border: Border.all(color: Colors.white, width: 2),
-            //   //         ),
-            //   //         child: Icon(
-            //   //           Icons.person,
-            //   //           size: 40,
-            //   //           color: Colors.blue.shade700,
-            //   //         ), // Placeholder icon
-            //   //       ),
-            //   //       const SizedBox(width: 20),
-            //   //       Column(
-            //   //         crossAxisAlignment: CrossAxisAlignment.start,
-            //   //         children: const <Widget>[
-            //   //           Text(
-            //   //             "Khurram Saeed",
-            //   //             style: TextStyle(
-            //   //               fontSize: 22,
-            //   //               fontWeight: FontWeight.bold,
-            //   //               color: Colors.black87,
-            //   //             ),
-            //   //           ),
-            //   //           Text(
-            //   //             "Flutter Developer",
-            //   //             style: TextStyle(fontSize: 16, color: Colors.black54),
-            //   //           ),
-            //   //         ],
-            //   //       ),
-            //   //     ],
-            //   //   ),
-            //   // ),
-            // ),
+          // ✅ Navigation button
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder:
+                      (context) =>
+                          SecondScreen(data: 'Hello from FirstScreen!'),
+                ),
+              );
+            },
+            child: Text('Navigate to Second Screen'),
+          ),
+        ],
+      ),
+    );
+  }
+}
 
-            // SizedBox(height: 10),
-            // Container(
-            //   width: double.infinity,
-            //   height: 80,
-            //   decoration: BoxDecoration(
-            //     borderRadius: BorderRadius.circular(15.0),
-            //     gradient: LinearGradient(
-            //       colors: [Colors.blue.shade200, Colors.purple.shade100],
-            //       begin: Alignment.topLeft,
-            //       end: Alignment.bottomRight,
-            //     ),
-            //     boxShadow: [
-            //       BoxShadow(
-            //         color: Colors.grey.withOpacity(0.3),
-            //         spreadRadius: 2,
-            //         blurRadius: 5,
-            //         offset: const Offset(0, 3), // changes position of shadow
-            //       ),
-            //     ],
-            //   ),
-            //   child: ListTile(
-            //     leading: Container(
-            //       width: 80,
-            //       height: 80,
-            //       decoration: BoxDecoration(
-            //         shape: BoxShape.circle,
-            //         color: Colors.white.withOpacity(0.7),
-            //         border: Border.all(color: Colors.white, width: 2),
-            //       ),
-            //       child: Icon(
-            //         Icons.person,
-            //         size: 40,
-            //         color: Colors.blue.shade700,
-            //       ), // Placeholder icon
-            //     ),
-            //     trailing: Icon(Icons.settings),
-            //     title: Text("Afaq"),
-            //     subtitle: Text("Flutter"),
-            //   ),
-            // ),
+class SecondScreen extends StatelessWidget {
+  final String data;
+  const SecondScreen({super.key, required this.data});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text('Second Screen')),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(data, style: TextStyle(fontSize: 24)),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.pop(context);
+              },
+              child: Text('Back'),
+            ),
           ],
         ),
       ),
     );
   }
 }
-
-//  Container(
-//           color: Colors.grey.shade200,
-//           height: 400,
-//           width: 300,
-//           child: Stack(
-//             children: [
-//               Image.asset('assets/logo.png'),
-
-//               Container(width: 100, height: 100, color: Colors.red),
-
-//               Positioned(
-//                 top: 30,
-//                 left: 10,
-//                 child: Container(
-//                   width: 100,
-//                   height: 100,
-//                   color: Colors.deepPurple,
-//                 ),
-//               ),
-//               Positioned(
-//                 top: 60,
-//                 left: 20,
-//                 child: Container(width: 100, height: 100, color: Colors.yellow),
-//               ),
-//             ],
-//           ),
-//         ),

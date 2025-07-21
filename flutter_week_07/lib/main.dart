@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:sqlite_viewer2/sqlite_viewer.dart';
 import 'package:week_07/databse/database_help.dart';
 
 void main() {
@@ -48,7 +49,7 @@ class _LoginScreenState extends State<LoginScreen> {
           children: [
             ElevatedButton(
               onPressed: () async {
-                await db.insertData("Ali", "Zahir", "ali@example.com");
+                await db.insertData("Shahab", "Afridu", "shahab@example.com");
                 await loadUsers();
               },
               child: Text("Insert User"),
@@ -66,6 +67,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 await loadUsers();
               },
               child: Text("Delete User with ID 1"),
+            ),
+
+            TextButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => DatabaseList()),
+                );
+              },
+              child: Text("Navigate to Database List"),
             ),
             Divider(),
             Expanded(

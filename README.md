@@ -18,7 +18,7 @@ This course is perfect for beginners who want to dive into programming with Dart
 
 ## 🧠 What You Will Learn
 
-### 🧮 Dart Topics
+### Week 01 , 02 and 03 🧮 Dart Topics
 
 - Variables and Data Types  
 - Control Flow (`if`, `else`, `switch`)  
@@ -88,7 +88,7 @@ The app stores user records (name, father's name, email) and offers:
 ---
 
 
-#  Week 07 – 🛠️ Flutter API Integration Example
+#  Week 08 – 🛠️ Flutter API Integration Example
 
 This Flutter project demonstrates how to:
 - Implement a **Splash screen**

@@ -61,6 +61,46 @@ This course is perfect for beginners who want to dive into programming with Dart
 
 ---
 
+
+## 🔐 Week 06 – Flutter Login UI with Toggle Switch
+
+This Flutter project implements a stylish and interactive **Login Screen** featuring:
+
+- Custom **TextField** and **TextFormField** for email and password
+- Password **show/hide** toggle
+- Animated **toggle switch** using `animated_toggle_switch` package
+- Basic form validation with `GlobalKey<FormState>`
+
+---
+
+
+## 🷳 Week 07 – Flutter SQLite CRUD Demo
+
+This Flutter app demonstrates **basic CRUD operations** (Create, Read, Update, Delete) using the **`sqflite`** package with a local SQLite database.
+
+The app stores user records (name, father's name, email) and offers:
+
+👉 Insert new users  
+👉 Display all users  
+👉 Update user data  
+👉 Delete user by ID
+
+---
+
+
+#  Week 07 – 🛠️ Flutter API Integration Example
+
+This Flutter project demonstrates how to:
+- Implement a **Splash screen**
+- Build a **Login** and **Signup** flow using API (`reqres.in`)
+- Save user token using `SharedPreferences`
+- Navigate to a **Home screen** that:
+  - Fetches **product data** from Fake Store API
+  - Can be extended to fetch other APIs like **movies**
+
+---
+
+
 ## 📍 Location  
 **Arfa Kareem Technologies Incubation Center, Peshawar**
 

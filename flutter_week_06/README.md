@@ -1,16 +1,20 @@
-# flutter_week_06
+# 🔐 Flutter Login UI with Toggle Switch
 
-A new Flutter project.
+This Flutter project implements a stylish and interactive **Login Screen** featuring:
+- Custom **TextField** and **TextFormField** for email and password
+- Password **show/hide** toggle
+- Animated **toggle switch** using `animated_toggle_switch` package
+- Basic form validation using `GlobalKey<FormState>`
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📦 Packages Used
 
-A few resources to get you started if this is your first Flutter project:
+| Package                    | Purpose                            |
+|----------------------------|------------------------------------|
+| `flutter/material.dart`    | UI components                      |
+| `animated_toggle_switch`   | Dual toggle switch with animation  |
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📁 File Overview

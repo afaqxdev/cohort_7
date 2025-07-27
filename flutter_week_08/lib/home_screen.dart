@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_week_08/api_class.dart';
+import 'package:flutter_week_08/models/product_model.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -9,17 +10,22 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Map<String, dynamic>> data = [];
+  List<Product> data = [];
 
   Future<void> fetchData() async {
     ApiClass api = ApiClass();
-    final products = await api.getProducts();
+    final apiproducts = await api.getProducts();
 
-    setState(() {
-      data = products;
-    });
+    for (var item in apiproducts) {
+      data.add(Product.fromJson(item));
+    }
+    setState(() {});
   }
 
+  List<Map<String, dynamic>> data1 = [
+    {'description': 'asfas'},
+    {'user': 'asfas'},
+  ];
   @override
   void initState() {
     fetchData();
@@ -39,22 +45,18 @@ class _HomeScreenState extends State<HomeScreen> {
                 itemBuilder: (context, index) {
                   final item = data[index];
                   return ListTile(
-                    leading: Image.network(
-                      item['image'],
-                      width: 50,
-                      height: 50,
-                    ),
-                    title: Text(item['title']),
+                    leading: Image.network(item.image, width: 50, height: 50),
+                    title: Text(item.title),
                     subtitle: Text(
-                      item['description'],
+                      item.description,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                     trailing: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text("\$${item['price']}"),
-                        Text("⭐ ${item['rating']['rate']}"),
+                        Text("\$${item.price}"),
+                        Text("⭐ ${item.rating.rate}"),
                       ],
                     ),
                   );

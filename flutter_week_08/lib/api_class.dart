@@ -21,7 +21,7 @@ class ApiClass {
       final response = await http.post(
         Uri.parse(registerUrl),
         body: {"email": email, "password": password},
-        // headers: {'x-api-key': 'reqres-free-v1'},
+        headers: {'x-api-key': 'reqres-free-v1'},
       );
 
       if (response.statusCode == 200) {
@@ -57,13 +57,13 @@ class ApiClass {
   }
 
   /// GET method to fetch products
-  Future<List<Map<String, dynamic>>> getProducts() async {
+  Future<List<dynamic>> getProducts() async {
     try {
       final response = await http.get(Uri.parse(productsUrl));
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        return List<Map<String, dynamic>>.from(data);
+        return data;
       } else {
         print("Failed to load products: ${response.statusCode}");
         return [];

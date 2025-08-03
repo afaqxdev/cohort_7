@@ -100,6 +100,39 @@ This Flutter project demonstrates how to:
 
 ---
 
+#  Week 09 – 🛠️ Flutter State Management Example with Provider
+
+A clean and modular Flutter project demonstrating effective state management using the [`provider`](https://pub.dev/packages/provider) package. This project showcases how to use `ChangeNotifier`, `Consumer`, and `Selector` with widget decomposition for scalable and efficient Flutter UI development.
+
+
+## 📂 Features
+
+✅ Clean Architecture  
+✅ State Management with `Provider`  
+✅ Efficient UI updates using `Selector`  
+✅ Scoped rebuilds using `Consumer`  
+✅ Theme switching (Dark/Light)  
+✅ Code structure ready for MVVM or larger projects
+
+
+---
+
+
+#  Week 10 – 🛠️ Flutter BLoC Counter Example
+
+This is a simple Flutter counter application using the BLoC (Business Logic Component) pattern with `flutter_bloc`.
+
+## 📦 Features
+
+- State management using BLoC.
+- `BlocBuilder` for conditional UI rendering .
+- `BlocListner` for conditional  side effects.
+- `BlocConsumer` for conditional UI rendering and side effects.
+- Clean folder structure with `event`, `state`, and `logic`.
+
+---
+
+
 
 ## 📍 Location  
 **Arfa Kareem Technologies Incubation Center, Peshawar**

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "782283342616",
+    "project_id": "diet-buddy-68c71",
+    "storage_bucket": "diet-buddy-68c71.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:782283342616:android:b5b73fb1fcc8345abdd46d",
+        "android_client_info": {
+          "package_name": "com.example.firebase_setup"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFppvjGC-64ueAeeSfBQRU9CRCntws03I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

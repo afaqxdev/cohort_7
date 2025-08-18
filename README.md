@@ -133,6 +133,23 @@ This is a simple Flutter counter application using the BLoC (Business Logic Comp
 ---
 
 
+# Week 11 & 12 – 🛠️ Developing Keep Notes App with Firebase
+
+We developed a simple note-taking app where users can sign up, log in, and store their daily notes securely.
+
+## Features
+	-  Authentication (Login & Signup) with Firebase
+	-  Create, Read, Update, Delete (CRUD) notes
+	-  State Management using Provider
+	-  Firebase Integration for real-time data sync
+
+⸻
+
+
+
+
+
+
 
 ## 📍 Location  
 **Arfa Kareem Technologies Incubation Center, Peshawar**
